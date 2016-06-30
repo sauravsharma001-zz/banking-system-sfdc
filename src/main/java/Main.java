@@ -67,7 +67,7 @@ public class Main {
     get("/CreditCardDetails", (req,res) ->	{
     	Connection connection = null;
         Map<String, Object> attributes = new HashMap<>();
-        //.setContentType("application/json");
+        //res.setContentType("application/json");
         //res.setCharacterEncoding("UTF-8");
         String jsonObject;
         try {
@@ -77,7 +77,7 @@ public class Main {
           		+ 	"\"Due Date\", \"Credit Amount\", \"Debit Amount\" FROM public.\"CreditCardBill\" ");
 
           ArrayList<String> output = new ArrayList<String>();
-          PrintWriter out = response.getWriter();
+          //PrintWriter out = res.getWriter();
           JSONObject obj = new JSONObject();
           JSONObject obj1 = new JSONObject();
           JSONArray list = new JSONArray();
@@ -99,8 +99,8 @@ public class Main {
       		list.add(obj1);
           }
       	  obj.put("credit card", list);
-          out.print(obj);
-          out.flush();
+          //out.print(obj);
+          //out.flush();
           attributes.put("results", obj1);
           return new ModelAndView(attributes, "json.ftl");
         } catch (Exception e) {
