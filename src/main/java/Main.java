@@ -67,11 +67,11 @@ public class Main {
 
           ArrayList<String> output = new ArrayList<String>();
           while (rs.next()) {
-            output.add( "Read from DB: " + rs.getNumber("Card Number"));
-            output.add( "Read from DB: " + rs.getNumber("Bill Amount"));
-            output.add( "Read from DB: " + rs.getText("Card Type"));
-            output.add( "Read from DB: " + rs.getNumber("Credit Amount"));
-            output.add( "Read from DB: " + rs.getNumber("Debit Amount"));
+            output.add( "Read from DB: " + rs.getBigDecimal("Card Number"));
+            output.add( "Read from DB: " + rs.getBigDecimal("Bill Amount"));
+            output.add( "Read from DB: " + rs.getString("Card Type"));
+            output.add( "Read from DB: " + rs.getBigDecimal("Credit Amount"));
+            output.add( "Read from DB: " + rs.getBigDecimal("Debit Amount"));
             output.add( "Read from DB: " + rs.getDate("Due Date"));
           }
 
