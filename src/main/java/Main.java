@@ -13,8 +13,12 @@ import static spark.Spark.get;
 
 import com.heroku.sdk.jdbc.DatabaseUrl;
 
+import java.io.File;
 import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -60,7 +64,7 @@ public class Main {
       }
     }, new FreeMarkerEngine());
 
-    /*get("/CreditCardDetails", (req,res) ->	{
+    get("/CreditCardDetails", (req,res) ->	{
     	Connection connection = null;
         Map<String, Object> attributes = new HashMap<>();
         res.setContentType("application/json");
@@ -85,7 +89,7 @@ public class Main {
             output.add( "Read from DB: " + rs.getString("Card Type"));
             output.add( "Read from DB: " + rs.getBigDecimal("Credit Amount"));
             output.add( "Read from DB: " + rs.getBigDecimal("Debit Amount"));
-            output.add( "Read from DB: " + rs.getDate("Due Date"));
+            output.add( "Read from DB: " + rs.getDate("Due Date"));*/
       		obj1.put("Card Number",rs.getBigDecimal("Card Number"));
       		obj1.put("Bill Amount",rs.getBigDecimal("Bill Amount"));
       		obj1.put("Card Type",rs.getString("Card Type"));
@@ -105,7 +109,7 @@ public class Main {
         } finally {
           if (connection != null) try{connection.close();} catch(SQLException e){}
         }
-    }, new FreeMarkerEngine());*/
+    }, new FreeMarkerEngine());
   }
 
 }
