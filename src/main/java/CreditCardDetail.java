@@ -1,9 +1,13 @@
 package org.unisys.jmsrest;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -20,10 +24,9 @@ public class CreditCardDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Connection connection = null;
-        Map<String, Object> attributes = new HashMap<>();
-        res.setContentType("application/json");
-        res.setCharacterEncoding("UTF-8");
+		Map<String, Object> attributes = new HashMap<>();
+        resp.setContentType("application/json");
+        resp.setCharacterEncoding("UTF-8");
         String jsonObject;
         PrintWriter out = response.getWriter();
         JSONObject obj = new JSONObject();
