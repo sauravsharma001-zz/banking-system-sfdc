@@ -101,8 +101,8 @@ public class Main {
       	  obj.put("credit card", list);
           out.print(obj);
           out.flush();
-          //attributes.put("results", output);
-          //return new ModelAndView(attributes, "db.ftl");
+          attributes.put("results", obj1);
+          return new ModelAndView(attributes, "json.ftl");
         } catch (Exception e) {
           attributes.put("message", "There was an error: " + e);
           return new ModelAndView(attributes, "error.ftl");
