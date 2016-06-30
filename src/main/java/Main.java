@@ -93,7 +93,7 @@ public class Main {
       		obj1.put("Card Number",rs.getBigDecimal("Card Number"));
       		obj1.put("Bill Amount",rs.getBigDecimal("Bill Amount"));
       		obj1.put("Card Type",rs.getString("Card Type"));
-      		obj1.put("Crebit Amount",rs.getBigDecimal("Crebit Amount"));
+      		obj1.put("Crebit Amount",rs.getBigDecimal("Credit Amount"));
       		obj1.put("Debit Amount",rs.getBigDecimal("Debit Amount"));
       		obj1.put("Due Date",rs.getDate("Due Date"));
       		list.add(obj1);
