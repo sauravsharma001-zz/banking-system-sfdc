@@ -28,7 +28,7 @@ public class CreditCardDetail extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         String jsonObject;
-        PrintWriter out = response.getWriter();
+        PrintWriter out = resp.getWriter();
         JSONObject obj = new JSONObject();
         JSONObject obj1 = new JSONObject();
         JSONArray list = new JSONArray();
