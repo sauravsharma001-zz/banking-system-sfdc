@@ -67,8 +67,8 @@ public class Main {
     get("/CreditCardDetails", (req,res) ->	{
     	Connection connection = null;
         Map<String, Object> attributes = new HashMap<>();
-        res.setContentType("application/json");
-        res.setCharacterEncoding("UTF-8");
+        //.setContentType("application/json");
+        //res.setCharacterEncoding("UTF-8");
         String jsonObject;
         try {
           connection = DatabaseUrl.extract().getConnection();
