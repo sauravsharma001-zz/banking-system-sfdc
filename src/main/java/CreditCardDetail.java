@@ -2,6 +2,7 @@ package org.unisys.jmsrest;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
