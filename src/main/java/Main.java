@@ -55,6 +55,35 @@ public class Main {
       }
     }, new FreeMarkerEngine());
 
+    get("/CreditCardDetails", (req,res) ->	{
+    	Connection connection = null;
+        Map<String, Object> attributes = new HashMap<>();
+        try {
+          connection = DatabaseUrl.extract().getConnection();
+
+          Statement stmt = connection.createStatement();
+          ResultSet rs = stmt.executeQuery("SELECT \"Card Number\", \"Bill Amount\", \"Card Type\", "
+          		+ 	"\"Due Date\", \"Credit Amount\", \"Debit Amount\" FROM public.\"CreditCardBill\" ");
+
+          ArrayList<String> output = new ArrayList<String>();
+          while (rs.next()) {
+            output.add( "Read from DB: " + rs.getNumber("Card Number"));
+            output.add( "Read from DB: " + rs.getNumber("Bill Amount"));
+            output.add( "Read from DB: " + rs.getText("Card Type"));
+            output.add( "Read from DB: " + rs.getNumber("Credit Amount"));
+            output.add( "Read from DB: " + rs.getNumber("Debit Amount"));
+            output.add( "Read from DB: " + rs.getDate("Due Date"));
+          }
+
+          attributes.put("results", output);
+          return new ModelAndView(attributes, "db.ftl");
+        } catch (Exception e) {
+          attributes.put("message", "There was an error: " + e);
+          return new ModelAndView(attributes, "error.ftl");
+        } finally {
+          if (connection != null) try{connection.close();} catch(SQLException e){}
+        }
+    }, new FreeMarkerEngine());
   }
 
 }
